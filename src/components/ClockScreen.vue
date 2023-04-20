@@ -1,5 +1,16 @@
 <template>
-ClockScreenを表示します
+    <div class="container">
+        <div class="clock">
+            <div class="date">
+            <p>{{ year }}/{{ month }}/{{ day }}</p>
+            </div>
+            <div class="time">
+                <p>
+                    {{ hour }}:{{ minutes }}<span class="seconds">:{{ seconds }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
     export default{
@@ -31,10 +42,11 @@ ClockScreenを表示します
                 return this.dateTimePadding(this.date.getSeconds());
             },
         },
-        mounted:{
+        mounted(){
             // 現在日時をセット
-            
+            this.setDate();
             // 一秒ごとにseDate()を実行
+            setInterval(()=>this.setDate(),1000);
         },
         methods:{
             // 日時を二桁に変換
