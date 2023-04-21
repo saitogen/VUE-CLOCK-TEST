@@ -1,5 +1,4 @@
 <template>
-    <h1>testです</h1>
     <div class="container">
         <div class="clock">
             <div class="date">
