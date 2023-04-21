@@ -1,4 +1,5 @@
 <template>
+    <h1>testです</h1>
     <div class="container">
         <div class="clock">
             <div class="date">
@@ -15,7 +16,7 @@
 <script>
     export default{
         name:"ClockScreen",
-        date(){
+        data(){
             return{
                 // 現在の時刻を取得
                 date:new Date(),
@@ -38,7 +39,7 @@
             minutes(){
                 return this.dateTimePadding(this.date.getMinutes());
             },
-            sec(){
+            seconds(){
                 return this.dateTimePadding(this.date.getSeconds());
             },
         },
@@ -60,5 +61,31 @@
         },
     };
 </script>
-<style>
+<style scoped>
+    .container{
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    p{
+        margin: 0px;
+    }
+    .date,
+    .time{
+        font-weight:700 ;
+        color: #00ff01;
+    }
+    .date{
+        font-size: 70px;
+        text-align: right;
+    }
+    .time{
+        font-size: 70px;
+    }
+    .seconds{
+        font-size: 30px;
+    }
 </style>
