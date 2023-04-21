@@ -9,10 +9,16 @@
                     {{ hour }}:{{ minutes }}<span class="seconds">:{{ seconds }}</span>
                 </p>
             </div>
+            <!-- ボタンを追加 -->
+            <div class="button" v-on:click="showMessage()">
+                <p>10秒後にアラームを設定</p>
+            </div>
         </div>
     </div>
 </template>
 <script>
+import { shallowReadonly } from 'vue';
+
     export default{
         name:"ClockScreen",
         data(){
@@ -56,6 +62,11 @@
             // 現在の日時をセット
             setDate(){
                 this.date=new Date();
+            },
+            showMessage(){
+                window.setTimeout(()=>{
+                    alert("10秒経過しました");
+                },10000)
             }
         },
     };
@@ -86,5 +97,12 @@
     }
     .seconds{
         font-size: 30px;
+    }
+    .button{
+        border: 1px solid #fff;
+        text-align: center;
+        padding:10px 0;
+        color: #fff;
+        cursor: pointer;
     }
 </style>
